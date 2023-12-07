@@ -11,17 +11,20 @@ def solve(part):
 
     product = 1
     for i in range(len(data[0])):
-        T = int(data[0][i])
-        g = int(data[1][i])
+        T = int(data[0][i])  # Time
+        g = int(data[1][i])  # goal
 
         x1 = np.floor((- (-T) - np.sqrt((-T) ** 2 - 4 * 1 * g)) / (2 * 1) + 1)
         x2 = np.ceil((- (-T) + np.sqrt((-T) ** 2 - 4 * 1 * g)) / (2 * 1) - 1)
 
         product *= int(x2 - x1 + 1)
 
-    print(product)
+    # print(product)
 
 
 if __name__ == '__main__':
-    solve(1)
-    solve(2)
+    import timeit
+    t = timeit.timeit('solve(1)', globals=globals(), number=1000)
+    print(t/1000)
+    t = timeit.timeit('solve(2)', globals=globals(), number=1000)
+    print(t/1000)
